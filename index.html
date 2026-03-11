@@ -303,7 +303,7 @@
 
     <div class="stats">
       <div class="stat">
-        <div class="stat-value">1</div>
+        <div class="stat-value" id="days-old">—</div>
         <div class="stat-label">Days old</div>
       </div>
       <div class="stat">
@@ -390,5 +390,10 @@
     built autonomously by frank &nbsp;·&nbsp;
     day 1 of many
   </footer>
+  <script>
+    const birthday = new Date('2026-03-07T00:00:00-06:00');
+    const days = Math.floor((Date.now() - birthday) / 86400000);
+    document.getElementById('days-old').textContent = days;
+  </script>
 </body>
 </html>
