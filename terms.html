@@ -1,136 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Terms of Service for frankfor.you and Corporate Inc digital products.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Terms of Service for frankfor.you and Corporate Inc digital products." />
   <title>Terms of Service — frankfor.you</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #0a0a0a;
+      color: #e8e8e8;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      height: 60px;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #1e1e1e;
+      flex-shrink: 0;
+    }
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #e8e8e8;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-brand span { color: #4ade80; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #888;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #e8e8e8; }
+
+    /* LAYOUT */
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+
+    .page-hero {
+      padding: 64px 2rem 48px;
+      max-width: 760px;
+      margin: 0 auto;
+      border-bottom: 1px solid #1e1e1e;
+    }
+    .eyebrow {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #4ade80;
+      margin-bottom: 16px;
+    }
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: #e8e8e8;
+      margin-bottom: 12px;
+    }
+    .page-hero p {
+      color: #555;
+      font-size: 0.875rem;
+    }
+
+    /* PROSE */
+    .prose {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 52px 2rem 80px;
+    }
+
+    .prose > p:first-child {
+      font-size: 0.975rem;
+      color: #888;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #1e1e1e;
+    }
+
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #e8e8e8;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .prose h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #aaa;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .prose p {
+      font-size: 0.925rem;
+      color: #888;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .prose ul, .prose ol {
+      padding-left: 22px;
+      margin-bottom: 16px;
+    }
+
+    .prose li {
+      font-size: 0.925rem;
+      color: #888;
+      line-height: 1.75;
+      margin-bottom: 8px;
+    }
+
+    .prose a {
+      color: #4ade80;
+      text-decoration: none;
+    }
+    .prose a:hover { text-decoration: underline; }
+
+    .prose strong { color: #e8e8e8; font-weight: 600; }
+
+    .prose .caps {
+      font-size: 0.8rem;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .toc {
+      background: #111111;
+      border: 1px solid #1e1e1e;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+    .toc h4 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #555;
+      margin-bottom: 14px;
+    }
+    .toc ol {
+      padding-left: 18px;
+    }
+    .toc li {
+      font-size: 0.875rem;
+      color: #666;
+      margin-bottom: 6px;
+    }
+    .toc a {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .toc a:hover { color: #e8e8e8; }
+
+    /* FOOTER */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid #1e1e1e;
+      padding: 48px 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-inner { max-width: 960px; margin: 0 auto; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+    .footer-brand-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #e8e8e8;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .footer-brand-name span { color: #4ade80; }
+    .footer-tagline { color: #555; font-size: 0.85rem; line-height: 1.6; }
+    .footer-col h4 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #555;
+      margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #e8e8e8; }
+    .footer-bottom {
+      border-top: 1px solid #1e1e1e;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom p { color: #555; font-size: 0.8rem; }
+    .footer-bottom-links { display: flex; gap: 16px; }
+    .footer-bottom-links a {
+      color: #555;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: #e8e8e8; }
+
+    @media (max-width: 760px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { gap: 1.2rem; }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 0 1rem; }
+      .page-hero, .prose { padding-left: 1rem; padding-right: 1rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">frank<span class="accent">.</span></a>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="https://store.frankfor.you">Store</a>
-      <a href="/about.html">About</a>
-      <a href="/blog/">Blog</a>
-    </div>
-    <button class="nav-hamburger" aria-label="Open menu" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="nav-mobile" id="navMobile">
-    <a href="/">Home</a>
-    <a href="https://store.frankfor.you">Store</a>
-    <a href="/about.html">About</a>
-    <a href="/blog/">Blog</a>
-  </div>
+<nav>
+  <a href="/" class="nav-brand">frank<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://store.frankfor.you">Store</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/blog/">Blog</a></li>
+  </ul>
 </nav>
 
-<div class="page-hero">
-  <div class="container">
+<div class="page-wrap">
+  <div class="page-hero">
     <div class="eyebrow">Legal</div>
     <h1>Terms of Service</h1>
     <p>Last updated: March 13, 2026</p>
   </div>
+
+  <div class="prose">
+
+    <p>These Terms of Service ("Terms") govern your access to and use of the websites, products, and services operated by <strong>Corporate Inc</strong> ("Company," "we," "us," or "our"), including frankfor.you and store.frankfor.you (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms.</p>
+
+    <div class="toc">
+      <h4>Contents</h4>
+      <ol>
+        <li><a href="#acceptance">Acceptance of Terms</a></li>
+        <li><a href="#products">Digital Products</a></li>
+        <li><a href="#payments">Payments and Refunds</a></li>
+        <li><a href="#delivery">Delivery</a></li>
+        <li><a href="#ip">Intellectual Property</a></li>
+        <li><a href="#warranties">Disclaimer of Warranties</a></li>
+        <li><a href="#liability">Limitation of Liability</a></li>
+        <li><a href="#indemnification">Indemnification</a></li>
+        <li><a href="#conduct">Prohibited Conduct</a></li>
+        <li><a href="#modifications">Modifications to Terms</a></li>
+        <li><a href="#termination">Termination</a></li>
+        <li><a href="#governing-law">Governing Law</a></li>
+        <li><a href="#entire-agreement">Entire Agreement</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </div>
+
+    <h2 id="acceptance">1. Acceptance of Terms</h2>
+    <p>By purchasing, downloading, or using any product or service from Corporate Inc, you confirm that you are at least 18 years of age (or the age of majority in your jurisdiction), that you have read and understood these Terms, and that you agree to be bound by them.</p>
+    <p>If you do not agree to these Terms, you must not access or use our Services.</p>
+
+    <h2 id="products">2. Digital Products</h2>
+    <p>Corporate Inc sells digital products including, but not limited to, code templates, boilerplates, starter kits, document templates, and software tools ("Digital Products"). All Digital Products are sold "as is." Upon purchase, you receive a non-exclusive, non-transferable license to use the product for your personal or commercial projects, subject to the restrictions below.</p>
+
+    <h3>2.1 License Grant</h3>
+    <p>Subject to your compliance with these Terms, Corporate Inc grants you a limited, non-exclusive, non-sublicensable, non-transferable license to:</p>
+    <ul>
+      <li>Use the Digital Product for your own personal or commercial projects.</li>
+      <li>Modify the Digital Product for use within your own projects.</li>
+      <li>Include the Digital Product as part of a product or service you sell to end users, provided that the Digital Product is not the primary component being sold.</li>
+    </ul>
+
+    <h3>2.2 License Restrictions</h3>
+    <p>You may not:</p>
+    <ul>
+      <li>Resell, redistribute, or sublicense the Digital Product in its original or substantially similar form.</li>
+      <li>Share, upload, or make available the Digital Product files to third parties (including via file-sharing services, public repositories, or otherwise).</li>
+      <li>Use the Digital Product to create a competing product or service that is substantially similar to the Digital Product itself.</li>
+      <li>Remove or alter any copyright, trademark, or proprietary notices contained in the Digital Product.</li>
+    </ul>
+
+    <h2 id="payments">3. Payments and Refunds</h2>
+    <p>All prices are listed in US Dollars (USD). Payment is processed securely via Stripe. By completing a purchase, you authorize us to charge your payment method for the amount displayed at checkout.</p>
+
+    <h3>3.1 No Refund Policy</h3>
+    <p>Due to the digital nature of our products, all sales are final. We do not offer refunds once a digital product has been delivered. If you experience a technical issue preventing download or access, please contact us at <a href="mailto:support@frankfor.you">support@frankfor.you</a> within 7 days of purchase and we will make reasonable efforts to resolve the issue.</p>
+
+    <h3>3.2 Chargebacks</h3>
+    <p>Filing a chargeback or payment dispute for a valid digital product purchase is a violation of these Terms and may result in permanent account suspension and legal action to recover the disputed amount plus associated fees.</p>
+
+    <h2 id="delivery">4. Delivery</h2>
+    <p>Digital Products are delivered electronically via download link sent to the email address provided at checkout. You are responsible for providing a valid email address. If you do not receive your download link within 30 minutes, please check your spam folder or contact <a href="mailto:support@frankfor.you">support@frankfor.you</a>.</p>
+
+    <h2 id="ip">5. Intellectual Property</h2>
+    <p>All content, code, designs, copy, and materials on frankfor.you and store.frankfor.you, as well as all Digital Products, are the intellectual property of Corporate Inc and are protected by applicable copyright, trademark, and other intellectual property laws.</p>
+    <p>Nothing in these Terms transfers any ownership rights to you. You receive only the limited license described in Section 2.</p>
+
+    <h2 id="warranties">6. Disclaimer of Warranties</h2>
+    <p class="caps">THE SERVICES AND DIGITAL PRODUCTS ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. CORPORATE INC DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+    <p>We do not warrant that our products will be error-free, that defects will be corrected, or that the products are free of viruses or other harmful components. We do not warrant that the products will meet your specific requirements.</p>
+
+    <h2 id="liability">7. Limitation of Liability</h2>
+    <p class="caps">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, CORPORATE INC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF OUR SERVICES OR DIGITAL PRODUCTS.</p>
+    <p class="caps">IN NO EVENT SHALL CORPORATE INC'S TOTAL LIABILITY TO YOU EXCEED THE AMOUNT YOU PAID FOR THE SPECIFIC PRODUCT OR SERVICE GIVING RISE TO THE CLAIM.</p>
+
+    <h2 id="indemnification">8. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless Corporate Inc and its officers, directors, agents, and employees from and against any claims, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to your use of our Services or violation of these Terms.</p>
+
+    <h2 id="conduct">9. Prohibited Conduct</h2>
+    <p>You agree not to use our Services to:</p>
+    <ul>
+      <li>Violate any applicable law or regulation.</li>
+      <li>Infringe the intellectual property rights of any party.</li>
+      <li>Engage in fraudulent, deceptive, or misleading conduct.</li>
+      <li>Transmit any unsolicited commercial communications (spam).</li>
+      <li>Attempt to gain unauthorized access to our systems or networks.</li>
+      <li>Interfere with or disrupt the integrity or performance of our Services.</li>
+    </ul>
+
+    <h2 id="modifications">10. Modifications to Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. We will update the "Last updated" date at the top of this page. Continued use of our Services after any changes constitutes your acceptance of the updated Terms. We encourage you to review these Terms periodically.</p>
+
+    <h2 id="termination">11. Termination</h2>
+    <p>We reserve the right to suspend or terminate your access to our Services at any time, with or without cause, with or without notice. Upon termination, all licenses granted to you will immediately expire.</p>
+
+    <h2 id="governing-law">12. Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of our Services shall be resolved exclusively in the state or federal courts located in Delaware.</p>
+
+    <h2 id="entire-agreement">13. Entire Agreement</h2>
+    <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Corporate Inc with respect to our Services and supersede all prior agreements, understandings, and negotiations.</p>
+
+    <h2 id="contact">14. Contact</h2>
+    <p>If you have questions about these Terms, please contact us at:</p>
+    <p><strong>Corporate Inc</strong><br>
+    Email: <a href="mailto:support@frankfor.you">support@frankfor.you</a><br>
+    Website: <a href="https://frankfor.you">frankfor.you</a></p>
+
+  </div>
 </div>
 
-<div class="prose">
-
-  <p>These Terms of Service ("Terms") govern your access to and use of the websites, products, and services operated by <strong>Corporate Inc</strong> ("Company," "we," "us," or "our"), including frankfor.you and store.frankfor.you (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms.</p>
-
-  <h2>1. Acceptance of Terms</h2>
-  <p>By purchasing, downloading, or using any product or service from Corporate Inc, you confirm that you are at least 18 years of age (or the age of majority in your jurisdiction), that you have read and understood these Terms, and that you agree to be bound by them.</p>
-  <p>If you do not agree to these Terms, you must not access or use our Services.</p>
-
-  <h2>2. Digital Products</h2>
-  <p>Corporate Inc sells digital products including, but not limited to, code templates, boilerplates, starter kits, document templates, and software tools ("Digital Products").</p>
-  <p>All Digital Products are sold "as is." Upon purchase, you receive a non-exclusive, non-transferable license to use the product for your personal or commercial projects, subject to the restrictions below.</p>
-
-  <h3>2.1 License Grant</h3>
-  <p>Subject to your compliance with these Terms, Corporate Inc grants you a limited, non-exclusive, non-sublicensable, non-transferable license to:</p>
-  <ul>
-    <li>Use the Digital Product for your own personal or commercial projects.</li>
-    <li>Modify the Digital Product for use within your own projects.</li>
-    <li>Include the Digital Product as part of a product or service you sell to end users, provided that the Digital Product is not the primary component being sold.</li>
-  </ul>
-
-  <h3>2.2 License Restrictions</h3>
-  <p>You may not:</p>
-  <ul>
-    <li>Resell, redistribute, or sublicense the Digital Product in its original or substantially similar form.</li>
-    <li>Share, upload, or make available the Digital Product files to third parties (including via file-sharing services, public repositories, or otherwise).</li>
-    <li>Use the Digital Product to create a competing product or service that is substantially similar to the Digital Product itself.</li>
-    <li>Remove or alter any copyright, trademark, or proprietary notices contained in the Digital Product.</li>
-  </ul>
-
-  <h2>3. Payments and Refunds</h2>
-  <p>All prices are listed in US Dollars (USD). Payment is processed securely via Stripe. By completing a purchase, you authorize us to charge your payment method for the amount displayed at checkout.</p>
-
-  <h3>3.1 No Refund Policy</h3>
-  <p>Due to the digital nature of our products, all sales are final. We do not offer refunds once a digital product has been delivered. If you experience a technical issue preventing download or access, please contact us at <a href="mailto:support@frankfor.you">support@frankfor.you</a> within 7 days of purchase and we will make reasonable efforts to resolve the issue.</p>
-
-  <h3>3.2 Chargebacks</h3>
-  <p>Filing a chargeback or payment dispute for a valid digital product purchase is a violation of these Terms and may result in permanent account suspension and legal action to recover the disputed amount plus associated fees.</p>
-
-  <h2>4. Delivery</h2>
-  <p>Digital Products are delivered electronically via download link sent to the email address provided at checkout. You are responsible for providing a valid email address. If you do not receive your download link within 30 minutes, please check your spam folder or contact <a href="mailto:support@frankfor.you">support@frankfor.you</a>.</p>
-
-  <h2>5. Intellectual Property</h2>
-  <p>All content, code, designs, copy, and materials on frankfor.you and store.frankfor.you, as well as all Digital Products, are the intellectual property of Corporate Inc and are protected by applicable copyright, trademark, and other intellectual property laws.</p>
-  <p>Nothing in these Terms transfers any ownership rights to you. You receive only the limited license described in Section 2.</p>
-
-  <h2>6. Disclaimer of Warranties</h2>
-  <p>THE SERVICES AND DIGITAL PRODUCTS ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. CORPORATE INC DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
-  <p>We do not warrant that our products will be error-free, that defects will be corrected, or that the products are free of viruses or other harmful components. We do not warrant that the products will meet your specific requirements.</p>
-
-  <h2>7. Limitation of Liability</h2>
-  <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, CORPORATE INC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF OUR SERVICES OR DIGITAL PRODUCTS.</p>
-  <p>IN NO EVENT SHALL CORPORATE INC'S TOTAL LIABILITY TO YOU EXCEED THE AMOUNT YOU PAID FOR THE SPECIFIC PRODUCT OR SERVICE GIVING RISE TO THE CLAIM.</p>
-
-  <h2>8. Indemnification</h2>
-  <p>You agree to indemnify, defend, and hold harmless Corporate Inc and its officers, directors, agents, and employees from and against any claims, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to your use of our Services or violation of these Terms.</p>
-
-  <h2>9. Prohibited Conduct</h2>
-  <p>You agree not to use our Services to:</p>
-  <ul>
-    <li>Violate any applicable law or regulation.</li>
-    <li>Infringe the intellectual property rights of any party.</li>
-    <li>Engage in fraudulent, deceptive, or misleading conduct.</li>
-    <li>Transmit any unsolicited commercial communications (spam).</li>
-    <li>Attempt to gain unauthorized access to our systems or networks.</li>
-    <li>Interfere with or disrupt the integrity or performance of our Services.</li>
-  </ul>
-
-  <h2>10. Modifications to Terms</h2>
-  <p>We reserve the right to modify these Terms at any time. We will update the "Last updated" date at the top of this page. Continued use of our Services after any changes constitutes your acceptance of the updated Terms. We encourage you to review these Terms periodically.</p>
-
-  <h2>11. Termination</h2>
-  <p>We reserve the right to suspend or terminate your access to our Services at any time, with or without cause, with or without notice. Upon termination, all licenses granted to you will immediately expire.</p>
-
-  <h2>12. Governing Law</h2>
-  <p>These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of our Services shall be resolved exclusively in the state or federal courts located in Delaware.</p>
-
-  <h2>13. Entire Agreement</h2>
-  <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Corporate Inc with respect to our Services and supersede all prior agreements, understandings, and negotiations.</p>
-
-  <h2>14. Contact</h2>
-  <p>If you have questions about these Terms, please contact us at:</p>
-  <p><strong>Corporate Inc</strong><br>
-  Email: <a href="mailto:support@frankfor.you">support@frankfor.you</a><br>
-  Website: <a href="https://frankfor.you">frankfor.you</a></p>
-
-</div>
-
-<footer class="footer">
-  <div class="container">
+<footer>
+  <div class="footer-inner">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="nav-logo">frank<span class="accent">.</span></a>
-        <p>AI tools for humans who ship. Built autonomously, sold directly.</p>
+      <div>
+        <a href="/" class="footer-brand-name">frank<span>.</span></a>
+        <p class="footer-tagline">AI tools for humans who ship.<br>Built autonomously, sold directly.</p>
       </div>
       <div class="footer-col">
         <h4>Site</h4>
@@ -141,21 +410,19 @@
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
-        <a href="/terms.html">Terms of Service</a>
-        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 Corporate Inc. All rights reserved.</p>
-      <a href="mailto:support@frankfor.you">support@frankfor.you</a>
+      <div class="footer-bottom-links">
+        <a href="https://github.com/frank-for-you" target="_blank">github</a>
+        <a href="https://bsky.app/profile/frankfor.you" target="_blank">bluesky</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<script>
-function toggleMenu() {
-  document.getElementById('navMobile').classList.toggle('open');
-}
-</script>
 </body>
 </html>
